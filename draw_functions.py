@@ -90,8 +90,28 @@ def print_row_clues(img, offset, cell_unit, N, solution, row_clues):
         :param row_clues: the clues on the side
         :return: img: the final object of the image
     """
+    def string_row_clue(a_row_clue):
+        """
+        turns the clue from a list to a string
+        :param a_row_clue:
+        :return: the string of the clue
+        """
+        s = ""
+        return s
 
-    return img
+    font = cv2.FONT_HERSHEY_SCRIPT_SIMPLEX  # text type
+    Text_offset = int(200 / N)
+    for i in range(N):
+        for j in range(len(row_clues[i])):
+
+              cv2.putText(img, # image object
+                          str(row_clues[i][j]),
+                          (j*(cell_unit-30)+int(N/2)*Text_offset+N*4,i*cell_unit+(N+4)*Text_offset), # start position (horizontal offset + cell offset + centering offset, vertical offset)
+                          font, # font type
+                          6/N, # size
+                          Black, # color
+                          1) # line width
+
 
 def print_col_clues(img, offset, cell_unit, N, solution, col_clues):
     """
